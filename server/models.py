@@ -20,14 +20,14 @@ class Restaurant(db.Model, SerializerMixin):
     name = db.Column(db.String, nullable=False)
     address = db.Column(db.String, nullable=False)
 
-    # Relationship
+    
     restaurant_pizzas = db.relationship(
         'RestaurantPizza',
         backref='restaurant',
         cascade='all, delete-orphan'
     )
 
-    # Association Proxy (optional for direct pizza access)
+    
     pizzas = association_proxy('restaurant_pizzas', 'pizza')
 
     # Serialization rules
