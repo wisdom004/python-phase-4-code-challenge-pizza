@@ -30,7 +30,7 @@ class Restaurant(db.Model, SerializerMixin):
     
     pizzas = association_proxy('restaurant_pizzas', 'pizza')
 
-    # Serialization rules
+    
     serialize_rules = ('-restaurant_pizzas.restaurant',)
 
     def __repr__(self):
@@ -44,7 +44,7 @@ class Pizza(db.Model, SerializerMixin):
     name = db.Column(db.String, nullable=False)
     ingredients = db.Column(db.String, nullable=False)
 
-    # Relationship
+    
     restaurant_pizzas = db.relationship('RestaurantPizza', backref='pizza')
 
     # Association Proxy
