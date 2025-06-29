@@ -63,14 +63,14 @@ class RestaurantPizza(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Integer, nullable=False)
 
-    # Foreign Keys
+    
     restaurant_id = db.Column(db.Integer, db.ForeignKey('restaurants.id'), nullable=False)
     pizza_id = db.Column(db.Integer, db.ForeignKey('pizzas.id'), nullable=False)
 
-    # Serialization rules
+    
     serialize_rules = ('-pizza.restaurant_pizzas', '-restaurant.restaurant_pizzas')
 
-    # Validation
+    
     @validates('price')
     def validate_price(self, key, value):
         if value < 1 or value > 30:
