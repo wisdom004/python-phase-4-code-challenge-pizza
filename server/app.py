@@ -59,13 +59,13 @@ def delete_restaurant(id):
 def get_pizzas():
     pizzas = Pizza.query.all()
     return jsonify([
-        p.to_dict(only=('id', 'name', 'ingredients'))  # ✅ limit to required fields
+        p.to_dict(only=('id', 'name', 'ingredients'))  
         for p in pizzas
     ]), 200
 
 
 
-# POST /restaurant_pizzas
+
 @app.route('/restaurant_pizzas', methods=['POST'])
 def create_restaurant_pizza():
     try:
