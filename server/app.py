@@ -80,7 +80,7 @@ def create_restaurant_pizza():
 
         return jsonify(new_rp.to_dict(rules=['pizza', 'restaurant'])), 201
 
-    except ValueError:  # ✅ generic message for test
+    except ValueError: 
         return jsonify({"errors": ["validation errors"]}), 400
     except KeyError:
         return jsonify({"errors": ["Missing required fields"]}), 400
