@@ -29,7 +29,7 @@ def index():
 def get_restaurants():
     restaurants = Restaurant.query.all()
     return jsonify([
-        r.to_dict(only=('id', 'name', 'address'))  # ✅ only include required fields
+        r.to_dict(only=('id', 'name', 'address'))  
         for r in restaurants
     ]), 200
 
