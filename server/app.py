@@ -17,14 +17,14 @@ db.init_app(app)
 migrate = Migrate(app, db)
 api = Api(app)
 
-# ✅ ROUTES
+
 
 @app.route('/')
 def index():
     return "<h1>Code challenge</h1>"
 
 
-# GET /restaurants
+
 @app.route('/restaurants', methods=['GET'])
 def get_restaurants():
     restaurants = Restaurant.query.all()
@@ -35,7 +35,7 @@ def get_restaurants():
 
 
 
-# GET /restaurants/<int:id>
+
 @app.route('/restaurants/<int:id>', methods=['GET'])
 def get_restaurant(id):
     restaurant = Restaurant.query.get(id)
@@ -44,7 +44,7 @@ def get_restaurant(id):
     return jsonify(restaurant.to_dict(rules=['restaurant_pizzas', 'restaurant_pizzas.pizza'])), 200
 
 
-# DELETE /restaurants/<int:id>
+
 @app.route('/restaurants/<int:id>', methods=['DELETE'])
 def delete_restaurant(id):
     restaurant = Restaurant.query.get(id)
